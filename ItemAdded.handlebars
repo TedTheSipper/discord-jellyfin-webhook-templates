@@ -1,7 +1,7 @@
 {
     "content": "{{MentionType}}",
     "avatar_url": "{{AvatarUrl}}",
-    "username": "{{BotUsername}}",
+    "username": "{{{BotUsername}}}",
     "embeds": [
         {
             "author": {
@@ -13,7 +13,7 @@
                     "name": "Season Added - {{{SeriesName}}} {{{Name}}}",
                 {{/if_equals}}
 
-                {{#if_equals ItemType 'Movies'}}
+                {{#if_equals ItemType 'Movie'}}
                     "name": "Movie Added - {{{Name}}}",
                 {{/if_equals}}
 
@@ -23,6 +23,7 @@
 
                 "url": "{{ServerUrl}}/web/#/details?id={{ItemId}}&serverId={{ServerId}}"
             },
+            
 
             "thumbnail":{
                 "url": "{{ServerUrl}}/Items/{{ItemId}}/Images/Primary"
@@ -34,15 +35,15 @@
              {{~/if_exist~}}
 
              {{~#if_exist ServerUrl~}}
-                [**Play Now** ]({{ServerUrl}}/web/#details?id={{ItemId}}&serverId={{ServerId}})
+                [**Play Now** ]({{ServerUrl}}/web/#/details?id={{ItemId}}&serverId={{ServerId}})
              {{~/if_exist~}}
 
              {{~#if_exist Provider_imdb~}}
-                | [**IMDB** ](https://www.idmb.com/title/{{Provider_imdb}}/) 
-             {{/if_exist~}}
+                | [**IMDB** ](https://www.imdb.com/title/{{Provider_imdb}}/) 
+             {{~/if_exist~}}
 
              {{~#if_exist Provider_tmdb~}}
-                {{~#if_equals ItemType 'Movies'~}}
+                {{~#if_equals ItemType 'Movie'~}}
                 | [**TMDB** ](https://www.themoviedb.org/movie/{{Provider_tmdb}})
                 {{~/if_equals~}}
              {{~/if_exist~}}
@@ -58,7 +59,7 @@
              {{~/if_exist~}}
 
              {{~#if_exist Provider_musicbrainzalbum~}}
-                • [**MusicBrainz Album** ](https://musicbrainz.org/release/{{Provider_musicbrainzalbum}})
+                | [**MusicBrainz Album** ](https://musicbrainz.org/release/{{Provider_musicbrainzalbum}})
              {{~/if_exist~}}
              ",
 
