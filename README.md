@@ -12,9 +12,9 @@ To use this plugin you need to have the jellyfin webhook plugin [installed](http
 4. Done
 
 ### Examples
-Item Added Notification
+## Item Added Notification
  ![Item Added Webhook notification preview](/Assets/Images/ItemAdded.png)
- Item Deleted Notification
+## Item Deleted Notification
  ![Item Deleted Webhook notification preview]
 
 ## Planned Features
