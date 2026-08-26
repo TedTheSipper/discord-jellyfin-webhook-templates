@@ -1,0 +1,76 @@
+{
+    "content": "{{MentionType}}",
+    "avatar_url": "{{AvatarUrl}}",
+    "username": "{{BotUsername}}",
+    "embeds": [
+        {
+            "author": {
+                {{#if_equals ItemType 'Series'}}
+                    "name": "Series Added - {{SeriesName}}"
+                {{/if_equals}}
+
+                {{#if_equals ItemType 'Season'}}
+                    "name": "Season Added - {{{SeriesName}}} {{{Name}}}",
+                {{/if_equals}}
+
+                {{#if_equals ItemType 'Movies'}}
+                    "name": "Movie Added - {{{Name}}}",
+                {{/if_equals}}
+
+                {{#if_equals ItemType 'Albums'}}
+                    "name": "Album Added" - {{Artist}} 
+             
+
+                "url": "{{ServerUrl}}/web/#/details?id={{ItemId}}&serverId={{ServerId}}"
+            },
+
+            "thumbnail":{
+                "url": "{{ServerUrl}}/Items/{{ItemId}}/Images/Primary"
+            },
+
+            "description": "
+             {{~#if_exist Overview~}}"
+                > {{{Overview}}}\n\n
+            {{~/if_exist~}}
+
+            {{~#if_exist ServerUrl~}}
+                [**Play Now** ]({{ServerUrl}}/web/#details?id={{ItemId}}&serverId={{ServerId}})
+            {{~/if_exist~}}
+
+            {{~#if_exist Provider_imdb~}}
+                | [**IMDB** ](https://www.idmb.com/title/{{Provider_imdb}}/) 
+            {{/if_exist~}}
+
+            {{~#if_exist Provider_tmdb~}}
+                {{~#if_equals ItemType 'Movies'~}}
+                | [**TMDB** ](https://www.themoviedb.org/movie/{{Provider_tmdb}})
+                {{~/if_equals~}}
+            {{~/if_exist~}}
+
+            {{~#if_exist Provider_tvdb~}}
+                {{~#if_equals ItemType 'Series'~}}
+                | [**TVDB** ](https://www.thetvdb.com/series/{{Provider_tvdb}})
+                {{~/if_equals~}}
+            {{~/if_exist~}}
+
+              {{~#if_exist Provider_musicbrainzartist~}}
+                | [**MusicBrainz** ](https://musicbrainz.org/artist/{{Provider_musicbrainzartist}})
+            {{~/if_exist~}}
+
+            {{~#if_exist Provider_musicbrainzalbum~}}
+                • [**MusicBrainz Album** ](https://musicbrainz.org/release/{{Provider_musicbrainzalbum}})
+            {{~/if_exist~}}
+            ",
+
+            "color": "3510991",
+
+            "footer": {
+                "text": "{{{ServerName}}} ",
+                "icon_url": "{{AvatarUrl}}"
+            },
+
+            "timestamp": "{{Timestamp}}"
+        }
+    ]
+}
+        
