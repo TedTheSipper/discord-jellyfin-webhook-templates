@@ -6,19 +6,19 @@
         {
             "author": {
                 {{#if_equals ItemType 'Series'}}
-                    "name": "Series Added - {{{SeriesName}}}",
+                    "name": "Series Deleted - {{{SeriesName}}}",
                 {{/if_equals}}
 
                 {{#if_equals ItemType 'Season'}}
-                    "name": "Season Added - {{{SeriesName}}} {{{Name}}}",
+                    "name": "Season Deleted - {{{SeriesName}}} {{{Name}}}",
                 {{/if_equals}}
 
                 {{#if_equals ItemType 'Movie'}}
-                    "name": "Movie Added - {{{Name}}}",
+                    "name": "Movie Deleted - {{{Name}}}",
                 {{/if_equals}}
 
                 {{#if_equals ItemType 'Albums'}}
-                    "name": "Album Added - {{Artist}}", 
+                    "name": "Album Deleted - {{Artist}}", 
                 {{/if_equals}}
 
                 "url": "{{ServerUrl}}/web/#/details?id={{ItemId}}&serverId={{ServerId}}"
@@ -32,10 +32,6 @@
             "description": "
              {{~#if_exist Overview~}}
                 > {{{Overview}}}\n\n
-             {{~/if_exist~}}
-
-             {{~#if_exist ServerUrl~}}
-                [**Play Now** ]({{ServerUrl}}/web/#/details?id={{ItemId}}&serverId={{ServerId}})
              {{~/if_exist~}}
 
              {{~#if_exist Provider_imdb~}}
