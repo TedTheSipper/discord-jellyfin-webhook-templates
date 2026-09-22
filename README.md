@@ -1,5 +1,5 @@
 # discord-jellyfin-webhook-templates
-A few templates for webhooks and jellyfin
+A few templates for webhooks on jellyfin
 ## How to use
 To use this plugin you need to have the jellyfin webhook plugin [installed](https://github.com/jellyfin/jellyfin-plugin-webhook)
 
