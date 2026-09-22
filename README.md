@@ -30,4 +30,5 @@ What I plan to eventually add
  - User Locked Out
  - User Password Changed
  - User Updated
+ - Playback progress (Mayhappence)
 
