@@ -1,0 +1,27 @@
+Jellyfin Webhook Templates
+============================
+https://github.com/TedTheSipper/discord-jellyfin-webhook-templates/commits/main/ 
+
+Version 1.0.1 (2026.09.22)
+
+    Bugfixes:
+        ItemAdded
+            - Series name showing up blank in embed now should show up
+            - Albums should now properly embed correctly
+            - Metadata scrapers should hopefully post the external link now
+            - Made the embed color Green (3143327)
+
+    Enhancements*:
+        ItemAdded
+            - Thumbnails SHOULD appear next to overview. Im not Mx. Promise tho, don't shoot the messenger (Im a terrible dodger)
+            - Added Last.Fm support for Albums
+
+Version 1.0 (2026.08.25)
+
+    Enhancements*:
+        - Added ItemAdded
+    
+   
+
+
+* A *slight* chance that the 'Enhancement' might not work 

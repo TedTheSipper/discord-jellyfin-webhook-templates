@@ -5,7 +5,7 @@
     "embeds": [
         {
             "author": {
-                {{#if_equals ItemType 'Series'}}
+                {{#if_equals ItemType 'Season'}}
                     "name": "Series Added - {{{SeriesName}}}",
                 {{/if_equals}}
 
@@ -17,18 +17,13 @@
                     "name": "Movie Added - {{{Name}}}",
                 {{/if_equals}}
 
-                {{#if_equals ItemType 'Albums'}}
-                    "name": "Album Added - {{Artist}}", 
+                {{#if_equals ItemType 'Audio'}}
+                    "name": "Album Added -{{{Album}}} by: {{{Artist}}}", 
                 {{/if_equals}}
 
                 "url": "{{ServerUrl}}/web/#/details?id={{ItemId}}&serverId={{ServerId}}"
             },
             
-
-            "thumbnail":{
-                "url": "{{ServerUrl}}/Items/{{ItemId}}/Images/Primary"
-            },
-
             "description": "
              {{~#if_exist Overview~}}
                 > {{{Overview}}}\n\n
@@ -39,7 +34,9 @@
              {{~/if_exist~}}
 
              {{~#if_exist Provider_imdb~}}
+                {{~#if_equals ItemType 'Movie'~}}
                 | [**IMDB** ](https://www.imdb.com/title/{{Provider_imdb}}/) 
+                {{~/if_equals}}
              {{~/if_exist~}}
 
              {{~#if_exist Provider_tmdb~}}
@@ -49,28 +46,54 @@
              {{~/if_exist~}}
 
              {{~#if_exist Provider_tvdb~}}
-                {{~#if_equals ItemType 'Series'~}}
+                {{~#if_equals ItemType 'Season'~}}
                 | [**TVDB** ](https://www.thetvdb.com/series/{{Provider_tvdb}})
                 {{~/if_equals~}}
              {{~/if_exist~}}
 
-              {{~#if_exist Provider_musicbrainzartist~}}
+             {{~#if_exist Provider_applemusic~}}
+                {{~#if_equals ItemType 'Audio'~}}
+                | [**Apple Music**](https://music.apple.com/us/album/{{Provider_applemusic}})
+                {{~/if_equals~}}
+             {{~/if_exist~}}
+
+             {{~#if_exist Provider_discogs~}}
+                {{~#if_equals ItemType 'Audio'~}}
+                | [**Discogs**](https://www.discogs.com/master/{{Provider_discogs}})
+                {{~/if_equals~}}
+             {{~/if_exist}}
+
+
+             {{~#if_exist Provider_musicbrainzartist~}}
+                {{~#if_equals ItemType 'Audio'~}}
                 | [**MusicBrainz** ](https://musicbrainz.org/artist/{{Provider_musicbrainzartist}})
+                {{~/if_equals~}}
              {{~/if_exist~}}
 
              {{~#if_exist Provider_musicbrainzalbum~}}
                 | [**MusicBrainz Album** ](https://musicbrainz.org/release/{{Provider_musicbrainzalbum}})
              {{~/if_exist~}}
-             ",
 
-             "color": "3510991",
+             {{~#if_exist Provider_lastfm~}}
+                {{~#if_equals ItemType 'Audio'~}}
+                [**Last.FM**](https://last.fm/music/{{Provider_lastfm}})
+                {{~/if_equals~}}
+             {{~/if_exist~}}
+         
+             ",
+  
+            "thumbnail" = {
+              "url" =  "{{ServerUrl}}/Items/{{ItemId}}/Images/Primary"
+            },
+
+             "color": "3143327",
 
              "footer": {
                 "text": "{{{ServerName}}} ",
                 "icon_url": "{{AvatarUrl}}"
-             },
-
+           
              "timestamp": "{{Timestamp}}"
+             }
         }
     ]
 }
