@@ -5,7 +5,7 @@
     "embeds": [
         {
             "author": {
-                {{#if_equals ItemType 'Series'}}
+                {{#if_equals ItemType 'Season'}}
                     "name": "Series Deleted - {{{SeriesName}}}",
                 {{/if_equals}}
 
@@ -13,11 +13,15 @@
                     "name": "Season Deleted - {{{SeriesName}}} {{{Name}}}",
                 {{/if_equals}}
 
+                {{#if_equals ItemType 'Season'}}
+                    "name": "Episode Deleted - {{{SeriesNumber00}}} / {{{SeriesName}}}",
+                {{/if_equals}}
+
                 {{#if_equals ItemType 'Movie'}}
                     "name": "Movie Deleted - {{{Name}}}",
                 {{/if_equals}}
 
-                {{#if_equals ItemType 'Albums'}}
+                {{#if_equals ItemType 'Audio'}}
                     "name": "Album Deleted - {{Artist}}", 
                 {{/if_equals}}
 
@@ -34,29 +38,6 @@
                 > {{{Overview}}}\n\n
              {{~/if_exist~}}
 
-             {{~#if_exist Provider_imdb~}}
-                | [**IMDB** ](https://www.imdb.com/title/{{Provider_imdb}}/) 
-             {{~/if_exist~}}
-
-             {{~#if_exist Provider_tmdb~}}
-                {{~#if_equals ItemType 'Movie'~}}
-                | [**TMDB** ](https://www.themoviedb.org/movie/{{Provider_tmdb}})
-                {{~/if_equals~}}
-             {{~/if_exist~}}
-
-             {{~#if_exist Provider_tvdb~}}
-                {{~#if_equals ItemType 'Series'~}}
-                | [**TVDB** ](https://www.thetvdb.com/series/{{Provider_tvdb}})
-                {{~/if_equals~}}
-             {{~/if_exist~}}
-
-              {{~#if_exist Provider_musicbrainzartist~}}
-                | [**MusicBrainz** ](https://musicbrainz.org/artist/{{Provider_musicbrainzartist}})
-             {{~/if_exist~}}
-
-             {{~#if_exist Provider_musicbrainzalbum~}}
-                | [**MusicBrainz Album** ](https://musicbrainz.org/release/{{Provider_musicbrainzalbum}})
-             {{~/if_exist~}}
              ",
 
              "color": "16715821",
