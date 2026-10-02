@@ -3,6 +3,13 @@ Jellyfin Webhook Templates
 https://github.com/TedTheSipper/discord-jellyfin-webhook-templates/commits/main/ 
 * A *slight* chance that the 'Enhancement' might not work 
 
+Version 1.0.2 (2026.10.02)
+
+    Enhancements:
+        ItemAdded
+            - Removed added series to fix some bugs and figured it to be redundant
+
+            
 Version 1.0.1 (2026.09.22)
 
     Bugfixes:
